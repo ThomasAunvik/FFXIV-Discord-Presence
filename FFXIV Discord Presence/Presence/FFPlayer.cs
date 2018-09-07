@@ -28,7 +28,11 @@ namespace FFXIV_DiscordPresence.Presence
         public static int GetPlayerLevel()
         {
             ActorItem playerItem = GetPlayerItem();
-            return playerItem.Level;
+            if (playerItem != null)
+            {
+                return playerItem.Level;
+            }
+            return -1;
         }
     }
 }

@@ -45,8 +45,7 @@ namespace FFXIV_DiscordPresence.Presence
                     SmallImageKey = "image_small"
                 }
             };
-
-            //Set the rich presence
+            
             client.SetPresence(presence);
         }
 
@@ -70,7 +69,10 @@ namespace FFXIV_DiscordPresence.Presence
             }
 
             string details = "";
-            if (playerName != string.Empty) details = playerName + " - " + job + " lvl" + lvl;
+            if (playerName != string.Empty)
+            {
+                details = playerName + " - " + job + " lvl" + lvl;
+            }
             else state = string.Empty;
             
 
