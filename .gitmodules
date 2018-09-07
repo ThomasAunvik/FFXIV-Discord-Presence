@@ -1,0 +1,9 @@
+[submodule "sharlayan"]
+	path = sharlayan
+	url = https://github.com/FFXIVAPP/sharlayan.git
+[submodule "ffxivapp-props"]
+	path = ffxivapp-props
+	url = https://github.com/FFXIVAPP/ffxivapp-props.git
+[submodule "discord-rpc-csharp"]
+	path = discord-rpc-csharp
+	url = https://github.com/Lachee/discord-rpc-csharp.git
