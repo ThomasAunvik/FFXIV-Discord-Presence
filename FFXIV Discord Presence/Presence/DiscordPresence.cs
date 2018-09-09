@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using DiscordRPC;
 using DiscordRPC.Logging;
+using Sharlayan;
+using Sharlayan.Models.ReadResults;
 
 namespace FFXIV_DiscordPresence.Presence
 {
@@ -14,7 +16,6 @@ namespace FFXIV_DiscordPresence.Presence
         private DiscordRpcClient client;
 
         public RichPresence presence;
-        public Party party = new Party();
 
         public string playerName;
         public string lvl;
@@ -22,8 +23,11 @@ namespace FFXIV_DiscordPresence.Presence
 
         public string place;
 
-        public bool inParty = false;
-        public int maxPartySize = 4;
+        public bool IsInParty() {
+            PartyResult party = Reader.GetPartyMembers();
+            partySize = party.PartyMembers.Count;
+            return partySize > 1;
+        }
         public int partySize;
 
         public DiscordPresence(string clientID, string name = "Final Fantasy XIV")
@@ -57,15 +61,18 @@ namespace FFXIV_DiscordPresence.Presence
                 state += place;
             }
             
-            if (inParty)
+            if (IsInParty())
             {
-                party.Max = maxPartySize;
-                party.Size = partySize;
-                presence.Party = party;
+                switch (partySize)
+                {
+                    case 4: state += " - Light Party"; break;
+                    case 8: state += " - Full Party"; break;
+                    case 24: state += " - Full Raid"; break;
+                }
             }
             else
             {
-                presence.Party = null;
+                state += " - Solo";
             }
 
             string details = "";

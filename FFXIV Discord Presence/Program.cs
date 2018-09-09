@@ -42,10 +42,6 @@ namespace FFXIV_DiscordPresence
                     presence.lvl = FFPlayer.GetPlayerLevel().ToString();
                     presence.job = FFPlayer.GetPlayer().Job.ToString();
 
-                    PartyResult party = Reader.GetPartyMembers();
-                    presence.partySize = party.PartyMembers.Count;
-                    presence.inParty = presence.partySize > 1;
-
                     ActorItem playerItem = FFPlayer.GetPlayerItem();
 
                     if (playerItem != null)

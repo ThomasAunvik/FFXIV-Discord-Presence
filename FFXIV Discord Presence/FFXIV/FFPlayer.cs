@@ -22,6 +22,7 @@ namespace FFXIV_DiscordPresence.Presence
             ActorResult aResult = Reader.GetActors();
             KeyValuePair<uint, ActorItem> playerKeyValue = aResult.CurrentPCs.ToList().Find(x => x.Value.Name == GetPlayer().Name);
             ActorItem playerItem = playerKeyValue.Value;
+            
             return playerItem;
         }
 
