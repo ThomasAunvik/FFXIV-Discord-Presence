@@ -80,7 +80,6 @@
   <ItemGroup>
     <Compile Include="FFXIV\FFProcess.cs" />
     <Compile Include="Presence\DiscordPresence.cs" />
-    <Compile Include="FFXIV\FFPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
