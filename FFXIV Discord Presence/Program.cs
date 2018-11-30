@@ -37,21 +37,15 @@ namespace FFXIV_DiscordPresence
                         Console.WriteLine("Scanning...");
                     }
 
-                    CurrentPlayerResult player = Reader.GetCurrentPlayer();
+                    ActorItem player = ActorItem.CurrentUser;
 
-                    presence.playerName = player.CurrentPlayer.Name;
-                    presence.lvl = FFPlayer.GetPlayerLevel().ToString();
-                    presence.job = FFPlayer.GetPlayer().Job.ToString();
+                    presence.playerName = player.Name;
+                    presence.lvl = player.Level.ToString();
+                    presence.job = player.Job.ToString();
 
-                    ActorItem playerItem = FFPlayer.GetPlayerItem();
-
-                    if (playerItem != null)
-                    {
-                        uint mapID = playerItem.MapTerritory;
-                        MapItem zone = ZoneLookup.GetZoneInfo(mapID);
-                        
-                        presence.place = zone.Name.English;
-                    }
+                    uint mapID = player.MapTerritory;
+                    MapItem zone = ZoneLookup.GetZoneInfo(mapID);
+                    presence.place = zone.Name.English;
 
                     presence.UpdatePresence();
                     Thread.Sleep(5000);

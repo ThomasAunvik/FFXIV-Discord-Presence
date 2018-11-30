@@ -1,6 +1,7 @@
 [submodule "sharlayan"]
 	path = sharlayan
 	url = https://github.com/FFXIVAPP/sharlayan.git
+	ignore = dirty
 [submodule "ffxivapp-props"]
 	path = ffxivapp-props
 	url = https://github.com/FFXIVAPP/ffxivapp-props.git
