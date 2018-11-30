@@ -78,7 +78,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FFXIV\Dungeon.cs" />
     <Compile Include="FFXIV\FFProcess.cs" />
     <Compile Include="Presence\DiscordPresence.cs" />
     <Compile Include="FFXIV\FFPlayer.cs" />
@@ -88,9 +87,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="FFXIV Discord Presence_TemporaryKey.pfx" />
-    <None Include="signatures-x64.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="signatures-x64.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\discord-rpc-csharp\Discord RPC\DiscordRPC.csproj">

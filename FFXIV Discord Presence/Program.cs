@@ -38,6 +38,7 @@ namespace FFXIV_DiscordPresence
                     }
 
                     CurrentPlayerResult player = Reader.GetCurrentPlayer();
+
                     presence.playerName = player.CurrentPlayer.Name;
                     presence.lvl = FFPlayer.GetPlayerLevel().ToString();
                     presence.job = FFPlayer.GetPlayer().Job.ToString();
