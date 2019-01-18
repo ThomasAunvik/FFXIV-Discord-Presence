@@ -11,8 +11,8 @@ namespace FFXIV_DiscordPresence.FFXIV
 {
     public class FFProcess
     {
-        public const string DX11_DEFAUL_NAME = "ffxiv_dx11";
-        public const string DX9_DEFAUL_NAME = "ffxiv";
+        public const string DX11_DEFAULT_NAME = "ffxiv_dx11";
+        public const string DX9_DEFAULT_NAME = "ffxiv";
 
         public FFProcess Instance;
 

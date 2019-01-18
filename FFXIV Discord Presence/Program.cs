@@ -21,24 +21,47 @@ namespace FFXIV_DiscordPresence
     {
         public const string DISCORD_CLIENT_ID = "487662820284956692";
 
+
+
         static void Main(string[] args)
         {
-            FFProcess process = new FFProcess(FFProcess.DX11_DEFAUL_NAME, true);
+            FFProcess process = new FFProcess(FFProcess.DX11_DEFAULT_NAME, true);
             DiscordPresence presence = new DiscordPresence(DISCORD_CLIENT_ID);
+
+            bool shutdown = false;
+
+            new Thread(x => {
+                while (!shutdown)
+                {
+                    if(Console.ReadKey(true).Key == ConsoleKey.Escape)
+                    {
+                        shutdown = true;
+                        Console.WriteLine("Stopping application...");
+                    }
+                }
+            }).Start();
 
             Console.WriteLine("Press ESC to stop");
             do
             {
-                while (!Console.KeyAvailable)
+                while (Scanner.Instance.IsScanning)
                 {
-                    while (Scanner.Instance.IsScanning)
-                    {
-                        Thread.Sleep(1000);
-                        Console.WriteLine("Scanning...");
-                    }
+                    Thread.Sleep(1000);
+                    Console.WriteLine("Scanning...");
+                }
+                CurrentPlayer currentPlayer = Reader.GetCurrentPlayer().CurrentPlayer;
+                ActorItem player = null/*ActorItem.CurrentUser*/;
+                if(player == null)
+                {
+                    ActorResult aResult = Reader.GetActors();
+                    KeyValuePair<uint, ActorItem> playerKeyValue = aResult.CurrentPCs.ToList().Find(x => x.Value.Name == currentPlayer.Name);
+                    ActorItem playerItem = playerKeyValue.Value;
 
-                    ActorItem player = ActorItem.CurrentUser;
+                    player = playerItem;
+                }
 
+                if (player != null)
+                {
                     presence.playerName = player.Name;
                     presence.lvl = player.Level.ToString();
                     presence.job = player.Job.ToString();
@@ -48,9 +71,9 @@ namespace FFXIV_DiscordPresence
                     presence.place = zone.Name.English;
 
                     presence.UpdatePresence();
-                    Thread.Sleep(5000);
                 }
-            } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
+                Thread.Sleep(5000);
+            } while (!shutdown);
 
             presence.Deinitialize();
         }
