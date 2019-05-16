@@ -5,6 +5,8 @@
 [submodule "ffxivapp-props"]
 	path = ffxivapp-props
 	url = https://github.com/FFXIVAPP/ffxivapp-props.git
+	ignore = dirty
 [submodule "discord-rpc-csharp"]
 	path = discord-rpc-csharp
 	url = git@github.com:Lachee/discord-rpc-csharp.git
+	ignore = dirty
