@@ -41,7 +41,9 @@ namespace FFXIV_DiscordPresence.FFXIV
                 return;
             }
 
-            Console.WriteLine("Missing " + ", Ending...");
+            Console.WriteLine("Missing process: " + processName + ", Ending...");
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
             Environment.Exit(-1);
 
         }

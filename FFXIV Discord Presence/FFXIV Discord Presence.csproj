@@ -56,7 +56,7 @@
     <ApplicationIcon>ffxivmeteorlogo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>2A2316F6DE07683CAFBEC921B70DAF5B5DA9B9A3</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>2D3789CB739992E8F3CAE163E50C0B2A06243112</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>FFXIV Discord Presence_TemporaryKey.pfx</ManifestKeyFile>
@@ -89,7 +89,7 @@
     <None Include="signatures-x64.json" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\discord-rpc-csharp\Discord RPC\DiscordRPC.csproj">
+    <ProjectReference Include="..\discord-rpc-csharp\DiscordRPC\DiscordRPC.csproj">
       <Project>{819d20d6-8d88-45c1-a4d2-aa21f10abd19}</Project>
       <Name>DiscordRPC</Name>
     </ProjectReference>

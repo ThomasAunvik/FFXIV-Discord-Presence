@@ -32,7 +32,7 @@ namespace FFXIV_DiscordPresence.Presence
 
         public DiscordPresence(string clientID, string name = "Final Fantasy XIV")
         {
-            client = new DiscordRpcClient(clientID, true, -1);
+            client = new DiscordRpcClient(clientID);
 
             client.Logger = new ConsoleLogger() { Level = LogLevel.Warning };
 
