@@ -87,7 +87,7 @@ namespace FFXIV_DiscordPresence.Presence
             if(state != string.Empty) presence.State = state;
 
             client.SetPresence(presence);
-            client.Invoke();
+            //client.Invoke();
         }
 
         public void Deinitialize()
