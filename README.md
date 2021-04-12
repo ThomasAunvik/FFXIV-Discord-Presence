@@ -1,3 +1,7 @@
+Deprecated: Use [goatcorp/FFXIVQuickLauncher](https://github.com/goatcorp/FFXIVQuickLauncher) instead.
+
+---
+
 # FFXIV Discord Presence
 
 ![FFXIV_Presence](https://i.imgur.com/gZmUQER.png)
